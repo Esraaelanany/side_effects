@@ -7,6 +7,7 @@
 /// 3. Auto-complete في IDE
 /// 4. إعادة الاستخدام في عدة أماكن
 /// 5. التوثيق المركزي
+library;
 
 class SideEffectIds {
   // منع إنشاء instance من الكلاس

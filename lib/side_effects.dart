@@ -3,7 +3,7 @@
 ///
 /// توفر هذه المكتبة نظام مركزي لإدارة جميع الـ Side Effects
 /// مثل SnackBar، Dialog، Navigation، وغيرها بطريقة منع التكرار
-library side_effects;
+library;
 
 // Core Manager
 export 'managers/side_effect_manager.dart';
