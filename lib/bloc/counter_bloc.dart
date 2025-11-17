@@ -17,7 +17,7 @@ import 'counter_side_effect.dart';
 /// 2. Side Effects لا تتكرر عند rebuild
 /// 3. أسهل في الاختبار
 /// 4. فصل واضح بين المسؤوليات
-class CounterBloc extends SideEffectBloc<CounterEvent, CounterState, BaseSideEffect> {
+class CounterBloc extends SideEffectBloc<CounterEvent, CounterState, CounterSideEffect> {
   CounterBloc() : super(const CounterInitial()) {
     on<IncrementEvent>(_onIncrement);
     on<DecrementEvent>(_onDecrement);
@@ -34,10 +34,10 @@ class CounterBloc extends SideEffectBloc<CounterEvent, CounterState, BaseSideEff
     // إصدار Side Effects حسب القيمة
     if (newCount == 5) {
       // عند الوصول للرقم 5، نصدر side effect لإظهار رسالة نجاح
-      produceSideEffect(const CounterReached5SideEffect());
+      produceSideEffect(CounterReached5SideEffect());
     } else if (newCount == 10) {
       // عند الوصول للحد الأقصى، نصدر side effect لإظهار dialog وsnackbar
-      produceSideEffect(const CounterReachedLimitSideEffect(10));
+      produceSideEffect(CounterReachedLimitSideEffect(10));
     }
   }
 
@@ -48,7 +48,7 @@ class CounterBloc extends SideEffectBloc<CounterEvent, CounterState, BaseSideEff
     // منع الإنقاص تحت الصفر
     if (currentCount <= 0) {
       // إصدار side effect للخطأ فقط، بدون تغيير الـ State
-      produceSideEffect(const CounterBelowZeroErrorSideEffect());
+      produceSideEffect(CounterBelowZeroErrorSideEffect());
       return;
     }
 
@@ -62,6 +62,6 @@ class CounterBloc extends SideEffectBloc<CounterEvent, CounterState, BaseSideEff
     emit(const CounterInitial());
 
     // إصدار side effect لإظهار رسالة إعادة التعيين
-    produceSideEffect(const CounterResetSideEffect());
+    produceSideEffect(CounterResetSideEffect());
   }
 }

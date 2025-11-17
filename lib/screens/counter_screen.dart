@@ -44,7 +44,7 @@ class CounterView extends StatelessWidget {
           ),
         ],
       ),
-      body: SideEffectBlocConsumer<CounterBloc, CounterState, BaseSideEffect>(
+      body: SideEffectBlocConsumer<CounterBloc, CounterState, CounterSideEffect>(
         // ==================== Side Effects Listener ====================
         // يتم تنفيذ Side Effects هنا فقط، منفصلة تماماً عن State
         listener: (context, sideEffect) {

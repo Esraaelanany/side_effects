@@ -8,40 +8,40 @@ import '../core/side_effect_base.dart';
 /// وهي منفصلة تماماً عن State
 
 /// Side Effect عند الوصول للرقم 5
-class CounterReached5SideEffect extends BaseSideEffect {
-  const CounterReached5SideEffect();
-}
+///
+///
+///
+
+abstract class CounterSideEffect extends BaseSideEffect {}
+
+
+class CounterReached5SideEffect extends CounterSideEffect {}
 
 /// Side Effect عند محاولة الإنقاص تحت الصفر
-class CounterBelowZeroErrorSideEffect extends BaseSideEffect {
-  const CounterBelowZeroErrorSideEffect();
-}
+class CounterBelowZeroErrorSideEffect extends CounterSideEffect {}
 
 /// Side Effect عند الوصول للحد الأقصى (10)
-class CounterReachedLimitSideEffect extends BaseSideEffect {
+class CounterReachedLimitSideEffect extends CounterSideEffect {
   final int limit;
 
-  const CounterReachedLimitSideEffect(this.limit);
+  CounterReachedLimitSideEffect(this.limit);
 }
 
 /// Side Effect عند إعادة التعيين
-class CounterResetSideEffect extends BaseSideEffect {
-  const CounterResetSideEffect();
-}
+class CounterResetSideEffect extends CounterSideEffect {}
 
 /// Side Effect للانتقال لشاشة التفاصيل
-class NavigateToDetailsSideEffect extends BaseSideEffect {
+class NavigateToDetailsSideEffect extends CounterSideEffect {
   final int count;
-
-  const NavigateToDetailsSideEffect(this.count);
+  NavigateToDetailsSideEffect(this.count);
 }
 
 /// Side Effect لعرض معلومات إضافية
-class ShowCounterInfoSideEffect extends BaseSideEffect {
+class ShowCounterInfoSideEffect extends CounterSideEffect {
   final String message;
   final Color? color;
 
-  const ShowCounterInfoSideEffect({
+  ShowCounterInfoSideEffect({
     required this.message,
     this.color,
   });
